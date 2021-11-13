@@ -16,7 +16,7 @@ router.post('/newMnemonic', async(req,res) => {
 });
 
 
-// 니모닉 코드와 패스워드를 이용해 keystore를 생성합니다.
+// 니모닉 코드와 패스워드를 이용해 keystore와 address를 생성합니다.
 router.post('/newWallet', async(req, res) => {
   
   var password = req.body.password;
