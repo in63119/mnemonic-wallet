@@ -6,7 +6,7 @@ const fs = require('fs');
 // lightwallet 모듈을 사용하여 랜덤한 니모닉 코드를 얻습니다.
 router.post('/newMnemonic', async(req,res) => {
   let mnemonic;
-  // console.log('이거시 니모닉이다!!!');
+
   try {
       mnemonic = lightwallet.keystore.generateRandomSeed();
       res.json({mnemonic});
@@ -18,7 +18,6 @@ router.post('/newMnemonic', async(req,res) => {
 
 // 니모닉 코드와 패스워드를 이용해 keystore를 생성합니다.
 router.post('/newWallet', async(req, res) => {
-  // console.log('받아랏! keystore!!!')
   
   var password = req.body.password;
   var mnemonic = req.body.mnemonic;
@@ -40,7 +39,6 @@ router.post('/newWallet', async(req, res) => {
             if(err) {
               res.json({code:999,message:"실패"});
             } else {
-              // res.json({code:1,message:"성공"});
               res.json({"keystore": keystore, "address": address})
             }
           })
